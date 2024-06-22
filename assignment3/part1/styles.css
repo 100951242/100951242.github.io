@@ -28,3 +28,13 @@ body {
     color: #999999;
     font-weight: bold;
   }
+
+  a:link,
+  a:visited {
+    color: #fb6542;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: green;
+  }
