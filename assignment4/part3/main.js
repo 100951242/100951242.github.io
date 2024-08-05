@@ -26,7 +26,7 @@ class Ball {
     this.velY = velY;
     this.color = color;
     this.size = size;
-
+  }
   draw() {
     ctx.beginPath();
     ctx.fillStyle = this.color;
@@ -73,4 +73,20 @@ class Ball {
   }
 }
 
-  
+// declaring ball as const
+const balls = [];
+
+while (balls.length < 25) {
+  const size = random(10, 20);
+  const ball = new Ball(
+
+    random(0 + size, width - size),
+    random(0 + size, height - size),
+    random(-7, 7),
+    random(-7, 7),
+    randomRGB(),
+    size
+  );
+
+  balls.push(ball);
+}
