@@ -1,6 +1,9 @@
 // set up canvas
 
-const canvas = document.querySelector("canvas");
+const para = document.querySelector('p');
+let count = 0;
+
+const canvas = document.querySelector('p');
 const ctx = canvas.getContext("2d");
 
 const width = (canvas.width = window.innerWidth);
