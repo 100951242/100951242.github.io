@@ -171,8 +171,10 @@ while (balls.length < 25) {
     randomRGB(),
     size
   );
-
+ // adding count
   balls.push(ball);
+  count++;
+  para.textContent = 'Ball count: ' + count; 
 }
 
 function loop() {
