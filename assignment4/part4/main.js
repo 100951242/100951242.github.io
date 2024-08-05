@@ -188,12 +188,17 @@ function loop() {
   // adding if loop
   for (const ball of balls) {
     if (ball.exists) {
-    ball.draw();
-    ball.update();
-    ball.collisionDetect();
+      ball.draw();
+      ball.update();
+      ball.collisionDetect();
+    }
   }
 
-  requestAnimationFrame(loop);
+  evilBall.draw();
+  evilBall.checkBounds();
+  evilBall.collisionDetect();
+  
+  requestAnimationFrame();
 }
 
 loop();
