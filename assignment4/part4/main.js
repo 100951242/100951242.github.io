@@ -3,7 +3,7 @@
 const para = document.querySelector('p');
 let count = 0;
 
-const canvas = document.querySelector('p');
+const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext("2d");
 
 const width = (canvas.width = window.innerWidth);
@@ -21,16 +21,26 @@ function randomRGB() {
   return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
 }
 
-class Ball {
-  constructor(x, y, velX, velY, color, size) {
+// removing the colours 
+class shape {
+  constructor(x, y, velX, velY) {
     this.x = x;
     this.y = y;
     this.velX = velX;
     this.velY = velY;
-    this.color = color;
-    this.size = size;
   }
+}
 
+  class Ball extends shape {
+
+    constructor(x, y, velX, velY, color, size) {
+      super(x, y, velX, velY);
+  
+      this.color = color;
+      this.size = size;
+      this.exists = true;
+    }
+  
   draw() {
     ctx.beginPath();
     ctx.fillStyle = this.color;
