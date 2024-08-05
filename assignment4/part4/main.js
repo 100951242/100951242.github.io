@@ -4,7 +4,7 @@ const para = document.querySelector('p');
 let count = 0;
 
 const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext("2d");
+const ctx = canvas.getContext('2d');
 
 const width = (canvas.width = window.innerWidth);
 const height = (canvas.height = window.innerHeight);
@@ -12,8 +12,9 @@ const height = (canvas.height = window.innerHeight);
 // function to generate random number
 
 function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+  const num =  Math.floor(Math.random() * (max - min + 1)) + min;
+  return num;
+};
 
 // function to generate random RGB color value
 
@@ -22,7 +23,8 @@ function randomRGB() {
 }
 
 // removing the colours 
-class shape {
+class Shape {
+
   constructor(x, y, velX, velY) {
     this.x = x;
     this.y = y;
@@ -31,7 +33,7 @@ class shape {
   }
 }
 
-  class Ball extends shape {
+  class Ball extends Shape {
 
     constructor(x, y, velX, velY, color, size) {
       super(x, y, velX, velY);
@@ -71,7 +73,7 @@ class shape {
 
   collisionDetect() {
     for (const ball of balls) {
-      if (!(this === ball)) {
+      if (!(this === ball) && ball.exists) {
         const dx = this.x - ball.x;
         const dy = this.y - ball.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -85,7 +87,7 @@ class shape {
 }
 
 // extending shape
-class EvilCircle extends shape {
+class EvilCircle extends Shape {
 
   constructor(x, y) {
     super(x, y, 20, 20);
@@ -197,7 +199,7 @@ function loop() {
   evilBall.draw();
   evilBall.checkBounds();
   evilBall.collisionDetect();
-  
+
   requestAnimationFrame();
 }
 
